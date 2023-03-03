@@ -35,6 +35,12 @@ namespace BookLister
             });
 
             services.AddScoped<IBookListerRepository, EFBookListerRepository>();
+
+            services.AddRazorPages();
+
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,11 +54,28 @@ namespace BookLister
             //Corresponds to the wwwroot
             app.UseStaticFiles();
 
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("typepage", 
+                    "{bookType}/Page{pageNum}",
+                    new {Controller = "Home", action = "Index"});
+
+                endpoints.MapControllerRoute("Paging",
+                    pattern: "page{pageNum}",
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1 });
+
+                endpoints.MapControllerRoute("type",
+                    "{bookType}",
+                    new { Controller = "Home", action = "Index", pageNum = 1 });
+
+
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
         }
     }

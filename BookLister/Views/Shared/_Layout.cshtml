@@ -11,12 +11,17 @@
         <span class="navbar-brand ml-2 h1">BookLister</span>
     </div>
     <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            
+
+        <div id="types" class="col-3">
+            <vc:types></vc:types>
         </div>
+
         <div class="col-9">
-            @RenderBody()
-        </div>
+            <div>
+                @RenderBody()
+            </div>
+
+      </div>
 
         <footerk class="text-center">Thank you for visiting the BookLister</footerk>
 </body>

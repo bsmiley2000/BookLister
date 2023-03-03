@@ -7,20 +7,7 @@
 
 @foreach (Book b in Model.Books)
 {
-    <h4 class="bg-faded p-1">@b.Title</h4>
-
-    <ul class="card card-outline-primary m-1 p-1">
-        <li>Author: @b.Author</li>
-        <li>Classification: @b.Classification</li>
-        <li>Category: @b.Category</li>
-        <li>Author: @b.Author</li>
-        <li>Pages: @b.PageCount</li>
-        <li>Price: $@b.Price</li>
-        <li>Publisher: @b.Publisher</li>
-        <li>ISBN: @b.Isbn</li>
-    </ul>
-
-    <br />
+    <partial name="BookSummary" model="b" />
 }
 
 

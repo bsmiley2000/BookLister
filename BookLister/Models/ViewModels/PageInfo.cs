@@ -17,7 +17,5 @@ namespace BookLister.Models.ViewModels
         // Figure out how many pages we need
         public int TotalBooks => (int) Math.Ceiling((double) TotalNumBooks / BooksPerPage);
 
-
-
     }
 }
