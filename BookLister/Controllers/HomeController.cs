@@ -11,7 +11,7 @@ namespace BookLister.Controllers
 {
     public class HomeController : Controller
     {
-        private IBookListerRepository repo;
+        private IBookListerRepository repo { get; set; }
 
         public HomeController (IBookListerRepository temp)
         {
@@ -32,7 +32,9 @@ namespace BookLister.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumBooks = (bookType == null ? repo.Books.Count() : repo.Books.Where(x => x.Category == bookType).Count()),
+                    TotalNumBooks = (bookType == null
+                    ? repo.Books.Count()
+                    : repo.Books.Where(x => x.Category == bookType).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

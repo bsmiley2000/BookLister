@@ -1,7 +1,4 @@
-﻿@{
-}
-
-@model Book
+﻿@model Book
 
 <div class="card card-outline-primary m-1">
 
@@ -15,14 +12,13 @@
 
     </div>
 
-    <ul>
-        <li>Author: @Model.Author</li>
-        <li>Classification: @Model.Classification</li>
-        <li>Category: @Model.Category</li>
-        <li>Author: @Model.Author</li>
-        <li>Pages: @Model.PageCount</li>
-        <li>Publisher: @Model.Publisher</li>
-        <li>ISBN: @Model.Isbn</li>
+    <ul class="text-center">
+        <p>Author: @Model.Author</p>
+        <p>Classification: @Model.Classification</p>
+        <p>Category: @Model.Category</p>
+        <p>Pages: @Model.PageCount</p>
+        <p>Publisher: @Model.Publisher</p>
+        <p>ISBN: @Model.Isbn</p>
     </ul>
 
 
