@@ -4,11 +4,16 @@
 
     <div class="bg-faded p-1">
 
-        <h4>@Model.Title</h4>
+        <h4>
+            @Model.Title
 
-        <span class="badge bg-info" style="float:right; font-size:1.5rem;">
-            Price: $@Model.Price
-        </span>
+                <span class="badge bg-info" style="float:right; font-size:1.5rem;">
+                    Price: $@Model.Price
+                </span>
+
+        </h4>
+
+      
 
     </div>
 
@@ -28,7 +33,7 @@
         <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
 
         <span class="card-text p-5">
-            <button type="submit" class="btn btn-success btn-sm float-end p-3">Donate</button>
+            <button type="submit" class="btn btn-success btn-sm float-end m-1">Donate</button>
         </span>
 
     </form>
