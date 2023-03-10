@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/lib/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2 h1">BookLister</span>
+    <div class="bg-dark text-white p-3">
+        <h2 class="navbar-brand ml-2 h1">BookLister</h2>
+
+            <div class="row justify-content-end">
+                <div class="col-6 text-right">
+                    <vc:cart-summary />
+                </div>
+            </div>
+
     </div>
     <div class="row m-1 p-1">
 
@@ -21,7 +29,7 @@
                 @RenderBody()
             </div>
 
-      </div>
+        </div>
 
         <footerk class="text-center">Thank you for visiting the BookLister</footerk>
 </body>
