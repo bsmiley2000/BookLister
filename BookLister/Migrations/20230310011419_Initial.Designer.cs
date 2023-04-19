@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookLister.Migrations
 {
-    [DbContext(typeof(BookstoreContext))]
+    [DbContext(typeof(bookstoreContext))]
     [Migration("20230310011419_Initial")]
     partial class Initial
     {

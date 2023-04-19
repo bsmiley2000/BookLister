@@ -29,7 +29,7 @@ namespace BookLister
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<BookstoreContext>(options =>
+            services.AddDbContext<bookstoreContext>(options =>
             {
                 options.UseSqlite(Configuration["ConnectionStrings:BookDBConnection"]);
             });

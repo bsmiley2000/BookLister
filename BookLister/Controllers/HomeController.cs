@@ -1,11 +1,11 @@
 ﻿using BookLister.Models;
+using BookLister.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using BookLister.Models.ViewModels;
 
 namespace BookLister.Controllers
 {
@@ -41,6 +41,32 @@ namespace BookLister.Controllers
             };
 
             return View(x);
+        }
+
+        [HttpGet]
+        public IActionResult Edit (int bookid)
+        {
+            ViewBag.Books = repo.Books.ToList();
+
+            var book = repo.Books.FirstOrDefault(x => x.BookId == bookid);
+
+            return View("BookEdit", book);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+               /* repo.Books(book);*/
+             
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                ViewBag.Books = repo.Books.ToList();
+                return RedirectToAction("BookEdit");
+            }
         }
     }
 }

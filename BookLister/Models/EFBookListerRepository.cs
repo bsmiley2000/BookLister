@@ -8,9 +8,9 @@ namespace BookLister.Models
     public class EFBookListerRepository : IBookListerRepository
     {
 
-        private BookstoreContext context { get; set; }
+        private bookstoreContext context { get; set; }
 
-        public EFBookListerRepository (BookstoreContext temp)
+        public EFBookListerRepository (bookstoreContext temp)
         {
             context = temp;
         }

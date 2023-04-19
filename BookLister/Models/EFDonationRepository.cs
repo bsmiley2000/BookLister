@@ -9,9 +9,9 @@ namespace BookLister.Models
     public class EFDonationRepository : IDonationRepository
     {
 
-        private BookstoreContext context;
+        private bookstoreContext context;
 
-        public EFDonationRepository (BookstoreContext temp)
+        public EFDonationRepository (bookstoreContext temp)
         {
             context = temp;
         }

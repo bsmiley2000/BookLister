@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookLister.Models
 {
-    public class BookstoreContext : DbContext
+    public class bookstoreContext : DbContext
     {
-        public BookstoreContext()
+        public bookstoreContext()
         {
         }
 
-        public BookstoreContext(DbContextOptions<BookstoreContext> options)
+        public bookstoreContext(DbContextOptions<bookstoreContext> options)
             : base(options)
         {
 
