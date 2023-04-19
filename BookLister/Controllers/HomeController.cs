@@ -58,15 +58,44 @@ namespace BookLister.Controllers
         {
             if (ModelState.IsValid)
             {
-               /* repo.Books(book);*/
-             
-                return RedirectToAction("Index");
+                var existingBook = repo.Books.FirstOrDefault(x => x.BookId == book.BookId);
+                if (existingBook != null)
+                {
+                    existingBook.Title = book.Title;
+                    existingBook.Author = book.Author;
+                    existingBook.Publisher = book.Publisher;
+                    existingBook.Isbn = book.Isbn;
+                    existingBook.Classification = book.Classification;
+                    existingBook.Category = book.Category;
+                    existingBook.PageCount = book.PageCount;
+                    existingBook.Price = book.Price;
+
+                    repo.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
             }
-            else
-            {
-                ViewBag.Books = repo.Books.ToList();
-                return RedirectToAction("BookEdit");
-            }
+
+            ViewBag.Books = repo.Books.ToList();
+            return View("BookEdit", book);
         }
+
+
+
+        [HttpPost]
+        public IActionResult Delete(int bookid)
+        {
+            var bookToDelete = repo.Books.FirstOrDefault(x => x.BookId == bookid);
+            if (bookToDelete != null)
+            {
+                repo.Remove(bookToDelete);
+                repo.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+
     }
 }

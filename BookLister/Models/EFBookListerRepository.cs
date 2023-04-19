@@ -15,5 +15,18 @@ namespace BookLister.Models
             context = temp;
         }
         public IQueryable<Book> Books => context.Books;
+
+        public void SaveChanges()
+        {
+            context.SaveChanges();
+        }
+
+        public void Remove(Book book)
+        {
+            context.Books.Remove(book);
+            context.SaveChanges();
+        }
+
+
     }
 }

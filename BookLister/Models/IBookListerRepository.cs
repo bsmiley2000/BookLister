@@ -7,6 +7,9 @@ namespace BookLister.Models
 {
     public interface IBookListerRepository
     {
-        IQueryable<Book> Books { get;  }
+        IQueryable<Book> Books { get; }
+        void SaveChanges();
+        void Remove(Book book);
+
     }
 }
